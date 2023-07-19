@@ -15,7 +15,7 @@ private:
 	std::string	darkest_secret;
 public:
 	contact() {}
-	void	add_info ();
+	int		add_info ();
 	void	show_outline (int i);
 	void	show_info ();
 	void	replace_field (std::string str);

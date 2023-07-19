@@ -1,18 +1,28 @@
 #include "contact.hpp"
 
-void	contact::add_info ()
+int	contact::add_info ()
 {
 	std::cout<<"First_name: "<<std::endl;
-	std::cin>>this->first_name;
+	std::getline (std::cin, this->first_name);
+	if (std::cin.eof ())
+		return (1);
 	std::cout<<"Last_name: "<<std::endl;
-	std::cin>>this->last_name;
+	std::getline (std::cin, this->last_name);
+	if (std::cin.eof ())
+		return (1);
 	std::cout<<"Nickname: "<<std::endl;
-	std::cin>>this->nickname;
+	std::getline (std::cin, this->nickname);
+	if (std::cin.eof ())
+		return (1);
 	std::cout<<"Phone_number: "<<std::endl;
-	std::cin>>this->phone_number;
+	std::getline (std::cin, this->phone_number);
+	if (std::cin.eof ())
+		return (1);
 	std::cout<<"Darkest_secret: "<<std::endl;
-	std::cin>>this->darkest_secret;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline (std::cin, this->darkest_secret);
+	if (std::cin.eof ())
+		return (1);
+	return (0);
 }
 
 void	contact::replace_field (std::string str)

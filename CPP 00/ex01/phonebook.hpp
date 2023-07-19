@@ -9,12 +9,12 @@ private:
 	contact	contacts[8];
 	int		num_of_contact;
 	int		index;
+	int		add_contact ();
+	int		show_contacts ();
+	int		check_int (std::string index);
 public:
 	phonebook() :num_of_contact (0), index (0) {}
 	void	check_option ();
-	void	add_contact ();
-	void	show_contacts ();
-	int		check_int (std::string index);
 };
 
 #endif

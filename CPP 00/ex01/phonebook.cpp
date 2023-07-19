@@ -2,39 +2,43 @@
 
 void	phonebook::check_option ()
 {
-	std::string	EXIT ("EXIT");
-	std::string	exit ("exit");
-	std::string	SEARCH ("SEARCH");
-	std::string	search ("search");
-	std::string	ADD ("ADD");
-	std::string	add ("add");
 	std::string	option;
 
 	while (1)
 	{
 		std::cout<<"Please type one of three commands: ADD, SEARCH, and EXIT"<<std::endl;
 		std::getline (std::cin, option);
-		if (option.compare (EXIT) == 0 || option.compare (exit) == 0)
+		if (std::cin.eof ())
 			return ;
-		else if (option.compare (ADD) == 0 || option.compare (add) == 0)
-			add_contact ();
-		else if (option.compare (SEARCH) == 0 || option.compare (search) == 0)
-			show_contacts ();
+		if (option.compare ("EXIT") == 0 || option.compare ("exit") == 0)
+			return ;
+		else if (option.compare ("ADD") == 0 || option.compare ("add") == 0)
+		{
+			if (add_contact ())
+				return ;
+		}
+		else if (option.compare ("SEARCH") == 0 || option.compare ("search") == 0)
+		{
+			if (show_contacts ())
+				return;
+		}
 		else
 			std::cout<<"Error: Wrong command"<<std::endl;
 	}
 }
 
-void	phonebook::add_contact ()
+int	phonebook::add_contact ()
 {
 	if (index == 8)
 		index = 0;
-	contacts[index++].add_info ();
+	if (contacts[index++].add_info ())
+		return (1);
 	if (num_of_contact != 8)
 		num_of_contact++;
+	return (0);
 }
 
-void	phonebook::show_contacts ()
+int	phonebook::show_contacts ()
 {
 	int			i;
 	std::string	index;
@@ -50,14 +54,16 @@ void	phonebook::show_contacts ()
 	}
 	std::cout<<"Type index you want to see"<<std::endl;
 	std::getline (std::cin, index);
+	if (std::cin.eof ())
+		return (1);
 	i = check_int (index);
 	if (!(0 < i && i <= num_of_contact))
 	{
 		std::cout<<"Error: Out of range"<<std::endl;
-		return ;
+		return (0);
 	}
 	contacts[i - 1].show_info ();
-	return ;
+	return (0);
 }
 
 int	phonebook::check_int (std::string index)
