@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:09:07 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/17 16:11:57 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 17:27:37 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie () : name ("") {}
+
+Zombie::Zombie ( std::string name )
+{
+	this->name = name;
+}
+
+Zombie::~Zombie ()
+{
+	std::cout<<name<<" Destructor is called"<<std::endl;
+}
 
 void	Zombie::announce ( void )
 {

@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:05:19 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/19 16:14:44 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:09:50 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl ()
+{
+	c_level[0] = &Harl::debug;
+	c_level[5] = &Harl::info;
+	c_level[19] = &Harl::warning;
+	c_level[1] = &Harl::error;
+}
 
 void Harl::complain( std::string level )
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:04:46 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/19 16:48:09 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:12:51 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,15 @@ class Harl
 {
 private:
 	void	(Harl::*c_level[20]) ();
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
+	void 	debug( void );
+	void 	info( void );
+	void 	warning( void );
+	void 	error( void );
+	void	complain( std::string level );
+	int		compare_str ( std::string level );
 public:
-	Harl () {
-		c_level[0] = &Harl::debug;
-		c_level[5] = &Harl::info;
-		c_level[19] = &Harl::warning;
-		c_level[1] = &Harl::error;
-	}
-	void complain( std::string level );
-	void harlFilter (std::string level );
-	int	compare_str ( std::string level );
+	Harl ();
+	void	harlFilter (std::string level );
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:59:39 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/17 18:29:16 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 17:27:55 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ class Zombie
 private:
 	std::string	name;
 public:
-	Zombie () : name ("") {}
-	Zombie ( std::string name ){
-		this->name = name;
-	}
-	void 	announce( void );
-	static Zombie* newZombie( std::string name );
-	static Zombie* zombieHorde( int N, std::string name );
+	Zombie ();
+	Zombie ( std::string name );
+	~Zombie ();
+	void 			announce( void );
+	static Zombie*	newZombie( std::string name );
+	static Zombie*	zombieHorde( int N, std::string name );
 };
 
 #endif

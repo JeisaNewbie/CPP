@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:27:26 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/18 19:00:27 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:00:52 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace.hpp"
+
+replace::replace( char *s1, char *s2 ) : s1 (s1), s2 (s2) {};
 
 int	replace::open_File ( char *f_name )
 {

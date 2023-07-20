@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:49:33 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/18 09:52:36 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 17:58:04 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 	std::string	name;
 	Weapon		&type;
 public:
-	HumanA( std::string name, Weapon &type ) : name (name), type (type) {}
+	HumanA( std::string name, Weapon &type );
 	void	attack ( void );
 };
 
