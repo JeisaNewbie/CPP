@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:36:01 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/17 18:54:05 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/22 17:17:50 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main (int argc, char **argv)
 	std::getline (std::cin, name);
 	std::cout<<"Type num_of_newZombie to make"<<std::endl;
 	std::cin>>N;
-	Zombie	*Z_arr = Zombie::zombieHorde (N, name);
+	Zombie	*Z_arr = zombieHorde (N, name);
 	std::cout<<Z_arr<<std::endl;
 	for (int i = 0; i < N; i++)
 	{
