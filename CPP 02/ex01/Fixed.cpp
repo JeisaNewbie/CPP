@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:59:12 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/21 18:33:14 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/22 13:48:48 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ Fixed::Fixed( float float_number )
 	this->integer = roundf (float_number * 256);
 }
 
+Fixed::~Fixed()
+{
+	std::cout<<"Destructor called"<<std::endl;
+}
+
 Fixed& Fixed::operator=( const Fixed& copy )
 {
 	std::cout<<"Copy assignment operator called"<<std::endl;
 	this->integer = copy.getRawBits (); //integer = copy.integer; 마찬가지로 가능
 	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout<<"Destructor called"<<std::endl;
 }
 
 int Fixed::getRawBits( void ) const

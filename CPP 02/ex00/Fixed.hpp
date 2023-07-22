@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:57:31 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/20 22:04:35 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:18:55 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ private:
 	int					integer;
 	static const int	fractional_bits = 8;
 public:
-	Fixed();
-	Fixed( const Fixed &copy );
-	Fixed& operator=( const Fixed& copy );
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
-	~Fixed();
+	Fixed ();
+	Fixed ( const Fixed &copy );
+	~Fixed ();
+	Fixed	&operator=( const Fixed& copy );
+	int		getRawBits( void ) const;
+	void	setRawBits( int const raw );
 };
 
 #endif
