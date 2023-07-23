@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 13:48:10 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/06/05 10:22:50 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/23 18:25:41 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,53 +23,61 @@ private:
 	T		*arr;
 	size_t	length;
 public:
-	Array( void );
-	Array( unsigned int n );
-	Array( const Array& copy );
-	T getContent( unsigned int n );
+	Array ( void );
+	Array ( unsigned int n );
+	Array ( const Array &copy );
+	~Array ( void );
 	size_t size( void ) const;
-	Array &operator=( const Array& copy )
+	Array &operator=( const Array &copy )
 	{
-		size_t copy_len = copy.size();
 		if (this != &copy)
 		{
-			delete []this->arr;
-			for (size_t i = 0; i < copy_len; i++)
-				this->arr[i] = getContent(i);
-			this->length = copy_len;
+			if (this->arr != NULL)
+				delete []this->arr;
+			size_t copy_len = copy.size();
+			if (copy_len != 0)
+			{
+				this->length = copy_len;
+				this->arr = new T[length];
+				for (size_t i = 0; i < copy_len; i++)
+					this->arr[i] = copy.arr[i];
+			}
 		}
 		return (*this);
 	}
-	void *operator new[]( size_t n )
-	{
-		void *ptr = new char[n];
-		return (ptr);
-	}
-	T *operator []( int n )
+
+	T &operator []( int n )
 	{
 		try
 		{
 			if (n < 0 || n >= length)
 				throw Outofbounds();
+			if (this->arr == NULL)
+				throw NoArr();
 			return (arr[n]);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
+			exit (1);
 		}
-
 	}
-	~Array( void );
+
 	class Outofbounds: public std::exception
 	{
 		virtual const char* what( void ) const throw() {return ("Out of bounds");};
-	}
+	};
+
+	class NoArr: public std::exception
+	{
+		virtual const char* what( void ) const throw() {return ("No Arr");};
+	};
 };
 
 template <typename T>
-Array<T>::Array( void )
+Array<T>::Array( void ) : length (0)
 {
-	arr = new T();
+	arr = new T[length];
 }
 
 template <typename T>
@@ -80,8 +88,17 @@ Array<T>::Array( unsigned int n )
 }
 
 template <typename T>
+Array<T>::~Array()
+{
+	if (arr != NULL)
+		delete []arr;
+}
+
+template <typename T>
 Array<T>::Array( const Array& copy )
 {
+	std::cout<<"Array Copy Constructor called"<<std::endl;
+	this->arr = NULL;
 	*this = copy;
 }
 
@@ -89,18 +106,6 @@ template <typename T>
 size_t Array<T>::size( void ) const
 {
 	return (length);
-}
-
-template <typename T>
-T Array<T>::getContent( unsigned int n )
-{
-	return (arr[n]);
-}
-
-template <typename T>
-Array<T>::~Array()
-{
-	delete []arr;
 }
 
 #endif

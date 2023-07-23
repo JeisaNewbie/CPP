@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:09:24 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/06/03 12:55:50 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/07/22 22:20:44 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
  #define ITER_HPP
 
-template <class T1, class T2, class T3>
-void iter(T1 address, T2 length, T3 f)
+template <class T1, class T2>
+void iter(T1 address, size_t length, T2 f)
 {
 
-	for (int i = 0; i < length; i++)
+	for (size_t i = 0; i < length; i++)
 		f(address[i]);
 }
 
