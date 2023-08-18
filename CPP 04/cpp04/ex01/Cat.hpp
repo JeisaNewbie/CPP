@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:24:42 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/08/18 13:15:07 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/08/18 14:14:32 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ public:
 	virtual void makeSound( void ) const;
 	virtual std::string getType( void ) const;
 	virtual ~Cat( void );
-	void get_ideas();
+	void get_ideas(int i);
+	void set_ideas(std::string &str, int i);
 };
 
 #endif

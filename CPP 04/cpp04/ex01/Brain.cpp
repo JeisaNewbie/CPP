@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:59:09 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/08/18 13:28:55 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/08/18 16:47:28 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ Brain::Brain( void )
 {
 	std::cout<<"Brain Constructor called"<<std::endl;
 	ideas = new std::string[100];
-	for (int i = 0; i < 100; i++)
-	{
-		ideas[i] = random_str();
-		std::cout<<ideas[i]<<std::endl;
-	}
 }
 
 Brain::Brain( Brain& copy )
@@ -30,7 +25,7 @@ Brain::Brain( Brain& copy )
 
 Brain::~Brain()
 {
-	// std::cout<<"Brain Destructor called"<<std::endl;
+	std::cout<<"Brain Destructor called"<<std::endl;
 	delete []ideas;
 }
 
@@ -46,20 +41,16 @@ Brain& Brain::operator=( Brain& copy )
 	return (*this);
 }
 
-std::string Brain::random_str()
+void Brain::get_ideas(int i)
 {
-	std::string alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	std::string idea;
-	
-	srand((unsigned int)time(NULL));
-
-	for (int i = 0; i < 5; i++)
-		idea.push_back(alpha[rand() % 61]);
-	return idea;
+	if (!(0 <= i && i < 100))
+		std::cout<<"Error: Out of Range"<<std::endl;
+	std::cout<<this->ideas[i]<<std::endl;
 }
 
-void Brain::get_ideas()
+void Brain::set_ideas(std::string &str, int i)
 {
-	for (int i = 0; i < 100; i++)
-		std::cout<<this->ideas[i]<<std::endl;
+	if (!(0 <= i && i < 100))
+		std::cout<<"Error: Out of Range"<<std::endl;
+	this->ideas[i] = str;
 }

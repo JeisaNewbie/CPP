@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:36:08 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/23 16:08:33 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/08/18 16:50:58 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Animal::Animal ( void ): type("empty")
 	std::cout<<"Animal Constructor called"<<std::endl;
 }
 
-Animal::Animal ( const std::string& type ): type("empty")
+Animal::Animal ( const std::string& type ): type(type)
 {
 	std::cout<<"Animal Constructor called"<<std::endl;
 }

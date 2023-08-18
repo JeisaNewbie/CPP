@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:59:24 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/08/18 13:12:44 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/08/18 14:13:05 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ public:
 	Brain( Brain& copy );
 	Brain& operator=( Brain& copy );
 	virtual ~Brain();
-	std::string random_str();
-	void get_ideas();
+	void get_ideas(int i);
+	void set_ideas(std::string &str, int i);
 };
 
 #endif

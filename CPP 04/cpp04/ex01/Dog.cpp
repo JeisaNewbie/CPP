@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:40:06 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/08/18 13:14:43 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/08/18 14:36:29 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Dog& Dog::operator=( const Dog& copy )
 	{
 		delete dog_brain;
 		dog_brain = new Brain(*copy.dog_brain);
+		this->type = copy.type;
 	}
-	this->type = copy.type;
 	return (*this);
 }
 
@@ -49,7 +49,17 @@ Dog::~Dog( void )
 	delete dog_brain;
 }
 
-void Dog::get_ideas()
+void Dog::get_ideas(int i)
 {
-	this->dog_brain->get_ideas();
+	this->dog_brain->get_ideas(i);
+}
+
+void Dog::set_ideas(std::string &str, int i)
+{
+	this->dog_brain->set_ideas(str, i);
+}
+
+Brain *Dog::get_point()
+{
+	return (this->dog_brain);
 }
